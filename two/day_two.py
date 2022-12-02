@@ -1,6 +1,6 @@
 
 def one():
-    with open("one/day_two_input.txt", "r", encoding="utf-8") as f:
+    with open("two/day_two_input.txt", "r", encoding="utf-8") as f:
         count = 0
         cals = []
         for line in f.readlines():
@@ -33,7 +33,7 @@ def one():
         print(count)
 
 def two():
-    with open("one/day_two_input.txt", "r", encoding="utf-8") as f:
+    with open("two/day_two_input.txt", "r", encoding="utf-8") as f:
         count = 0
         cals = []
         for line in f.readlines():
