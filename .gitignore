@@ -1,0 +1,12 @@
+*.exe
+*.pdb
+
+# Added by cargo
+
+/target
+/src
+
+Cargo.toml
+/.vscode
+
+*.rs
