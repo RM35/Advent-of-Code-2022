@@ -30,7 +30,7 @@ def one():
             if A == "C" and B == "X":
                 count += 6
                 count += 1
-        print(count)
+        print(count) # Answer 13221
 
 def two():
     with open("two/day_two_input.txt", "r", encoding="utf-8") as f:
@@ -55,4 +55,4 @@ def two():
                 if A == "B": count += 3
                 if A == "C": count += 1
             pass
-        print(count)
+        print(count) # Answer 13131
