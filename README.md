@@ -1,1 +1,3 @@
-Advent of code 2022. Solutions used exactly as run with no post changes.
+# Advent of code 2022
+
+Solutions directly as used for solving along with revised versions.
