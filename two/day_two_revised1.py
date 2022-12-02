@@ -40,7 +40,7 @@ def two():
                 continue
 
             # if we must win then add the value of the i+1 of A.
-            # if we lose the add the calue of i-1
+            # if we lose the add the value of i-1
             if B == 3: 
                 count += (A % 3) + 1
             else:
