@@ -1,11 +1,10 @@
-
 def one():
     with open("two/day_two_input.txt", "r", encoding="utf-8") as f:
         count = 0
-        cals = []
         for line in f.readlines():
             A = line.split(" ")[0]
             B = line.split(" ")[1].rstrip()
+
             if A == "A" and B == "X":
                 count += 3
                 count += 1
@@ -30,15 +29,16 @@ def one():
             if A == "C" and B == "X":
                 count += 6
                 count += 1
-        print(count) # Answer 13221
+
+        assert(count == 13221)
 
 def two():
     with open("two/day_two_input.txt", "r", encoding="utf-8") as f:
         count = 0
-        cals = []
         for line in f.readlines():
             A = line.split(" ")[0]
             B = line.split(" ")[1].rstrip()
+
             if B == "X": 
                 count += 0
                 if A == "A": count += 3
@@ -54,5 +54,8 @@ def two():
                 if A == "A": count += 2
                 if A == "B": count += 3
                 if A == "C": count += 1
-            pass
-        print(count) # Answer 13131
+
+        assert(count == 13131) # Answer 13131
+
+one()
+two()

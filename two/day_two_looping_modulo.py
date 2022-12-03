@@ -1,5 +1,3 @@
-# Post solution changes. How awful can we make this look.
-
 def one():
     with open("two/day_two_input.txt", "r", encoding="utf-8") as f:
         count = 0
@@ -45,4 +43,4 @@ def two():
                 count += (A % 3) + 1
             else:
                 count += ((A - 2) % 3) + 1
-        assert(count == 13131) 
+        assert(count == 13131)
