@@ -1,29 +1,29 @@
-def one():
-    with open("four/day_four_input.txt", "r") as f:
-        subset_count = 0
-        for line in f.readlines():
-            line = line.rstrip()
-            
-            r1 = list(range(int(line.split(",")[0].split("-")[0]), int(line.split(",")[0].split("-")[1]) + 1))
-            r2 = list(range(int(line.split(",")[1].split("-")[0]), int(line.split(",")[1].split("-")[1]) + 1))
+import re
 
-            if set(r1).issubset(set(r2)):
+def one():
+    subset_count = 0
+    with open("four/day_four_input.txt", "r") as f:
+        for line in f.readlines():
+            ranges = [int(x) for x in re.split(r"[,-]", line.rstrip())]
+            r1 = set(range(ranges[0], ranges[1] + 1))
+            r2 = set(range(ranges[2], ranges[3] + 1))
+            
+            if r1.issubset(r2):
                 subset_count += 1
-            elif set(r2).issubset(set(r1)):
+            elif r2.issubset(r1):
                 subset_count += 1
 
     assert(subset_count == 588)
 
 def two():
+    all_overlap = 0
     with open("four/day_four_input.txt", "r") as f:
-        all_overlap = 0
         for line in f.readlines():
-            line = line.rstrip()
-            
-            r1 = list(range(int(line.split(",")[0].split("-")[0]), int(line.split(",")[0].split("-")[1]) + 1))
-            r2 = list(range(int(line.split(",")[1].split("-")[0]), int(line.split(",")[1].split("-")[1]) + 1))
+            ranges = [int(x) for x in re.split(r"[,-]", line.rstrip())]
+            r1 = set(range(ranges[0], ranges[1] + 1))
+            r2 = set(range(ranges[2], ranges[3] + 1))
 
-            if set(r1) & set(r2):
+            if r1 & r2:
                 all_overlap += 1
 
     assert(all_overlap == 911)
