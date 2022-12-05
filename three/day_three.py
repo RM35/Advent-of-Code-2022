@@ -1,3 +1,8 @@
+## Post solution summary:
+# 1: Simple to parse. Split each line in half with a slice.
+# 2: Using lists and python "in" to check for the duplicate.
+# 3: Make use of the ascii values to get the 1-26 26-55 values for letters
+
 def one():
     with open("three/day_three_input.txt", "r") as f:
         bag1 = []
