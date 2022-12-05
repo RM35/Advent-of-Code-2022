@@ -1,3 +1,8 @@
+## Post solution summary:
+# 1: Sum each line. split groups of lines on newlines
+# readlines already splits by newline "\n" so having another
+# is the same as split("\n\n")
+
 def one():
     with open("one/day_one_input.txt", "r") as f:
         count = 0
