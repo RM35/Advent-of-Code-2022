@@ -1,7 +1,5 @@
 ## try everything until it works. 
 
-import re
-
 def one():
     ans = ""
     crates = []
@@ -44,11 +42,8 @@ def one():
     for i in crates_two:
         ans += str(i[0])
 
-
-
     assert(ans == "MQTPGLLDN")
       
-
 
 def two():
     ans = ""
