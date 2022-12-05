@@ -1,3 +1,10 @@
+## Post solution summary:
+# 1: Parse the 2 letters by spl;itting on " "
+# 2: Both parts are just matching the conditions. Part 1, I fully wrote out 
+# all the combinations. Part 2 has included the win/loss/draw to reduce
+# some of the permutations
+
+
 def one():
     with open("two/day_two_input.txt", "r", encoding="utf-8") as f:
         count = 0
