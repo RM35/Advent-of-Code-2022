@@ -11,6 +11,8 @@
 # basically do a list.extend() but to the front of each stack
 # 7: crate stacks are in oreder top to bottom so take [0] for each top crate.
 
+
+#is it on
 def one():
     ans = ""
     crates = []

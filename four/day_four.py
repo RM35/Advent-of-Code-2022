@@ -1,5 +1,10 @@
 import re
 
+## Post solution summary:
+# 1:  Parse using regex to split on multi characters
+# 2: part one and 2 both make use of sets to check for the subset and any over
+# lap can be checking for a bitwise and between sets
+
 def one():
     subset_count = 0
     with open("four/day_four_input.txt", "r") as f:
