@@ -1,7 +1,7 @@
 from pprint import pprint
 from copy import deepcopy
 
-def day_one():
+def one():
     with open("eight/day_eight_input.txt") as f:
         data = f.readlines()
         tree_grid = []
@@ -57,7 +57,7 @@ def day_one():
         for i in range(grid_y):
             visibility_count += sum(visibility_mask[i])
 
-def day_two():
+def two():
     with open("eight/day_eight_input.txt") as f:
         data = f.readlines()
         tree_grid = []
@@ -132,13 +132,6 @@ def day_two():
                     else:
                         break
                 
-                # print(f'Location: {x}, {y}')
-                # print(f'Left: {left_score}')
-                # print(f'Right: {right_score}')
-                # print(f'Up: {up_score}')
-                # print(f'Down: {down_score}')
-
-
                 dir_scores = filter(lambda x: x != 0, [left_score, right_score, up_score, down_score])
                 total_tree_score = 1
                 for i in dir_scores:
@@ -150,4 +143,6 @@ def day_two():
                 score_mask[y][x] = total_tree_score
 
     pprint(max(scores))
-day_two()
+
+one()
+two()
