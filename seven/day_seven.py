@@ -1,6 +1,9 @@
-# Probably some better recursive way of doing this.
-# Didn't want to spend time googling so this is what
-# I came up with. start at the "leafs" and sum the directory sizes.
+## Post solution summary:
+# 1: Get a flat dictionary of all the files/dirs and their path
+# 2: Split paths to find path depth and sort to get a heirarchy
+# 3: Starting at the leafs calculate each directory size and store
+# in a solved sizes dict.
+# 4: Use solved sizes to answer the questions.
 
 lines = []
 with open("seven/day_seven_input.txt", "r") as f:
@@ -8,6 +11,7 @@ with open("seven/day_seven_input.txt", "r") as f:
 
 objects = {}
 
+# 1
 current_directory = []
 last_command = ""
 log_lines = []
@@ -36,6 +40,7 @@ for path, object in log_lines:
     else:
         objects[path].append({"file": int(object.split(" ")[0])})
 
+# 2
 heir = []
 for key, val in objects.items():
     heir.append([len(key.split("/")), key])
@@ -45,6 +50,7 @@ heir = heir[::-1]
 
 solved_sizes = {}
 
+# 3
 for i, key in heir:
     dir_total = 0
     for i, item in enumerate(objects[key]):
@@ -59,6 +65,7 @@ sum_of_smaller = 0
 for path, size in solved_sizes.items():
     if size < 100000: sum_of_smaller += size
 
+# 4
 print(sum_of_smaller)
 
 sizes_only = []
