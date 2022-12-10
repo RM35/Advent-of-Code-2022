@@ -61,9 +61,27 @@ def one():
         pprint(debug_mask)
         print(len(set(visited)))
 
+
+def cheapest_cell(L, D):
+    costs = {}
+    costs[(0, 1)] = abs(L[0] - D[0]) + abs(L[1] + 1 - D[1])
+    costs[(0, -1)] = abs(L[0] - D[0]) + abs(L[1] - 1 - D[1])
+    costs[(-1, 0)] = abs(L[0] - 1 - D[0]) + abs(L[1] - D[1])
+    costs[(1, 0)] = abs(L[0] + 1 - D[0]) + abs(L[1] - D[1])
+    costs[(1, 1)] = abs(L[0] + 1 - D[0]) + abs(L[1] + 1 - D[1])
+    costs[(-1, 1)] = abs(L[0] - 1 - D[0]) + abs(L[1] + 1 - D[1])
+    costs[(-1, -1)] = abs(L[0] - 1 - D[0]) + abs(L[1] - 1 - D[1])
+    costs[(1, -1)] = abs(L[0] + 1 - D[0]) + abs(L[1] - 1 - D[1])
+
+    min_cost = (0, 1)
+    for k, v in costs.items():
+        if v < costs[min_cost]:
+            min_cost = k
+
+    return min_cost
+ 
 def two(): 
-    ##WIP
-    with open("nine/day_nine_test_two.txt", "r", encoding='utf-8') as f:
+    with open("nine/day_nine_input.txt", "r", encoding='utf-8') as f:
         lines = f.readlines()
         last_H_pos = [0, 0]
         last_relation = 2
@@ -86,7 +104,8 @@ def two():
                             continue
                         last_relation = adjacent(last_pos[i], last_pos[i-1])
                         if (last_relation < 3) and (adjacent(rope[i], rope[i-1]) == 3):
-                            rope[i][0], rope[i][1] = last_pos[i-1]
+                            rope[i][0] = rope[i][0]+cheapest_cell(rope[i], rope[i-1])[0]
+                            rope[i][1] = rope[i][1]+cheapest_cell(rope[i], rope[i-1])[1]
 
                     if DIR == "L":
                         last_pos[i] = rope[i][::]
@@ -95,7 +114,8 @@ def two():
                             continue
                         last_relation = adjacent(last_pos[i], last_pos[i-1])
                         if (last_relation < 3) and (adjacent(rope[i], rope[i-1]) == 3):
-                            rope[i][0], rope[i][1] = last_pos[i-1]
+                            rope[i][0] = rope[i][0]+cheapest_cell(rope[i], rope[i-1])[0]
+                            rope[i][1] = rope[i][1]+cheapest_cell(rope[i], rope[i-1])[1]
 
                     if DIR == "U":
                         last_pos[i] = rope[i][::]
@@ -104,7 +124,8 @@ def two():
                             continue
                         last_relation = adjacent(last_pos[i], last_pos[i-1])
                         if (last_relation < 3) and (adjacent(rope[i], rope[i-1]) == 3):
-                            rope[i][0], rope[i][1] = last_pos[i-1]
+                            rope[i][0] = rope[i][0]+cheapest_cell(rope[i], rope[i-1])[0]
+                            rope[i][1] = rope[i][1]+cheapest_cell(rope[i], rope[i-1])[1]
 
                     if DIR == "D":
                         last_pos[i] = rope[i][::]
@@ -113,10 +134,10 @@ def two():
                             continue
                         last_relation = adjacent(last_pos[i], last_pos[i-1])
                         if (last_relation < 3) and (adjacent(rope[i], rope[i-1]) == 3):
-                            rope[i][0], rope[i][1] = last_pos[i-1]
+                            rope[i][0] = rope[i][0]+cheapest_cell(rope[i], rope[i-1])[0]
+                            rope[i][1] = rope[i][1]+cheapest_cell(rope[i], rope[i-1])[1]
                     
                 visited.append((rope[-1][0], rope[-1][1]))
-                debug_mask[rope[-1][1]][rope[-1][0]] = "X"
 
         ##pprint(debug_mask)
         print(len(set(visited)))
