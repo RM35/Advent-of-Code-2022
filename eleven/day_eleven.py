@@ -18,7 +18,7 @@ data = data
 rounds = 10000
 
 # Need to maintain the divisibility of the numbers while reducing size so
-# divide by a lcm
+# modulo by the lcm to loop the number in a reasonable range
 lowest_common_multiple = lcm(19, 3, 11, 17, 5, 2, 13, 7)
 lowest_common_multiple_test = lcm(23, 19, 13, 17)
 
