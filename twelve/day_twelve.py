@@ -35,7 +35,7 @@ def cost_function(x, y):
     if y == 0: 
         up_cost = 100000
     else:
-        if grid[y-1][x] == 69:
+        if grid[y-1][x] == 69 and grid[y][x] == 122:
             up_cost = 0
         else:
             up_cost = abs(grid[y-1][x] - grid[y][x])
@@ -43,7 +43,7 @@ def cost_function(x, y):
     if y == len(grid)-1: 
         down_cost = 100000
     else:
-        if grid[y+1][x] == 69:
+        if grid[y+1][x] == 69 and grid[y][x] == 122:
             down_cost = 0
         else:
             down_cost = abs(grid[y+1][x] - grid[y][x])
@@ -51,7 +51,7 @@ def cost_function(x, y):
     if x == 0: 
         left_cost = 100000
     else:
-        if grid[y][x-1] == 69:
+        if grid[y][x-1] == 69 and grid[y][x] == 122:
             left_cost = 0
         else:
             left_cost = abs(grid[y][x-1] - grid[y][x])
@@ -59,7 +59,7 @@ def cost_function(x, y):
     if x == len(grid[y])-1: 
         right_cost = 100000
     else:
-        if grid[y][x+1] == 69:
+        if grid[y][x+1] == 69 and grid[y][x] == 122:
             right_cost = 0
         else:
             right_cost = abs(grid[y][x+1] - grid[y][x])
@@ -117,5 +117,5 @@ def db_cells(loc, size, grid):
 path_debug = deepcopy(grid)
 
 path = a_star(start, end)
-#print(path)
+print(path)
 print(len(path))
