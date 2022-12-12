@@ -1,1 +1,1 @@
-![rbom.png](rbom)
+![rbom.png](rbom.png)
