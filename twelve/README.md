@@ -1,1 +1,1 @@
-![EFUGLPAP.png](roadblock on the mountain.png)
+![rbom.png](rbom)
