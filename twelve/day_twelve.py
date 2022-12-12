@@ -1,5 +1,6 @@
 import heapq
 from copy import deepcopy
+from pprint import pprint
 
 grid = []
 with open("twelve/day_twelve_test.txt") as f:
@@ -69,6 +70,9 @@ def calc_dist(current, end):
     return abs(current[0] - end[0]) + abs(current[1] - end[1])
 
 
+# 5600 total cells. so why is closed and open list going above?
+# open list has duplicates. Swapped around costs and locations.
+# checked for existing in open list. Test works. Is my maze broken?
 def a_star(start, end):
     global path_debug
     open_list = []
@@ -84,24 +88,34 @@ def a_star(start, end):
         to_add = []
 
         if cost["up"] < 2:
-            to_add.append([(current[0], current[1] - 1), cost["up"]])
+            to_add.append([cost["up"], (current[0], current[1] - 1)])
         if cost["down"] < 2:
-            to_add.append([(current[0], current[1] + 1), cost["down"]])
+            to_add.append([cost["down"], (current[0], current[1] + 1)])
         if cost["left"] < 2:
-            to_add.append([(current[0] - 1, current[1]), cost["left"]])
+            to_add.append([cost["left"], (current[0] - 1, current[1])])
         if cost["right"] < 2:
-            to_add.append([(current[0] + 1, current[1]), cost["right"]])
+            to_add.append([cost["right"], (current[0] + 1, current[1])])
 
         for new in to_add:
-            if new[0] in closed_list:
+            if new[1] in closed_list:
                 continue
-            new_cost = new[1] + calc_dist(new[0], end)
-            heapq.heappush(open_list, (new_cost, new[0]))
+            new_cost = new[0] + calc_dist(new[1], end)
+            new[0] = new_cost
+            if new in open_list:
+                continue
+            heapq.heappush(open_list, new)
         print(f"open count: {len(open_list)} closed count: {len(closed_list)}")
     return None
+
+def db_cells(loc, size, grid):
+    local_area = [[x for x in range(size)] for y in range(size)]
+    for y in range(size):
+        for x in range(size):
+            local_area[y][x] = grid[loc[1] - 1 + y][loc[0] - 1 + x]
+    print(local_area)
 
 path_debug = deepcopy(grid)
 
 path = a_star(start, end)
 #print(path)
-print(len(path)-2)
+print(len(path))
