@@ -3,7 +3,7 @@ from copy import deepcopy
 from pprint import pprint
 
 grid = []
-with open("twelve/day_twelve_test.txt") as f:
+with open("twelve/day_twelve_input.txt") as f:
     grid = f.readlines()
     grid = list(map(lambda x: x.strip(), grid))
     for i, line in enumerate(grid):
@@ -17,8 +17,10 @@ for y in range(len(grid)):
     for x in range(len(grid[y])):
         if grid[y][x] == 83:
             start = (x, y)
+            grid[y][x] = 97
         if grid[y][x] == 69:
             end = (x, y)
+            grid[y][x] = 122
 
 def cost_function(x, y):
     global grid
@@ -69,20 +71,18 @@ def cost_function(x, y):
 def calc_dist(current, end):
     return abs(current[0] - end[0]) + abs(current[1] - end[1])
 
-
-# 5600 total cells. so why is closed and open list going above?
-# open list has duplicates. Swapped around costs and locations.
-# checked for existing in open list. Test works. Is my maze broken?
+# Need to return the pruned direct/shortest path still to fix test.
+# full input still broken on top
 def a_star(start, end):
     global path_debug
     open_list = []
-    closed_list = []
+    closed_list = set()
     heapq.heappush(open_list, (0, start))
     while len(open_list) > 0:
         current = heapq.heappop(open_list)[1]
         if current == end:
             return closed_list
-        closed_list.append(current)
+        closed_list.add(current)
         path_debug[current[1]][current[0]] = "#"
         cost = cost_function(current[0], current[1])
         to_add = []
@@ -105,7 +105,7 @@ def a_star(start, end):
                 continue
             heapq.heappush(open_list, new)
         print(f"open count: {len(open_list)} closed count: {len(closed_list)}")
-    return None
+    return closed_list
 
 def db_cells(loc, size, grid):
     local_area = [[x for x in range(size)] for y in range(size)]
@@ -116,6 +116,7 @@ def db_cells(loc, size, grid):
 
 path_debug = deepcopy(grid)
 
-path = a_star(start, end)
+path = list(a_star(start, end))
+
 print(path)
 print(len(path))
