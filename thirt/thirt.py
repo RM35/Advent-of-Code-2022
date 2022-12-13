@@ -28,10 +28,10 @@ def compare(l1, l2):
             if res == 1: return 1
             if res == -1: return -1
 
-        # check if all were equal and l2 was shorter. Then incorrect order
+        # check if all were equal and l1 was shorter. Then correct order
         if (l1[min_len-1] == l2[min_len-1]) and len(l1) < len(l2): return -1
 
-        # check if equal but l2 was longer. correct order
+        # check if equal but l2 was shorter. incorrect order
         if (l1[min_len-1] == l2[min_len-1]) and len(l1) > len(l2): return 1
 
         # if all equal and equal length then ccontinue
@@ -53,6 +53,18 @@ for i in range(0, len(lines), 2):
 print(right_order)
 print(sum(right_order))
 
+all_signals = []
+for i in range(0, len(lines), 2):
+    all_signals.append(eval(lines[i].strip()))
+    all_signals.append(eval(lines[i+1].strip()))
+
+total_below_6 = 0
+total_below_2 = 0
+for sig in all_signals:
+    if compare(sig, [[6]]) == -1: total_below_6 += 1
+    if compare(sig, [[2]]) == -1: total_below_2 += 1
+
+print(total_below_6 * total_below_2)
 # Test outputs
 # True
 # True
