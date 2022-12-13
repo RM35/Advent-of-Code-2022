@@ -37,6 +37,10 @@ def compare(l1, l2):
         if final_depth:
             min_len = min(len(l1), len(l2))
             for i in range(min_len):
+                print(f'Comparing {l1[i]} and {l2[i]}')
+                if l1[i] > l2[i]: 
+                    print(f'Comparison: False')
+                    return False
                 if i == (min_len-1) and len(l1) > len(l2) and l1[i] == l2[i]:
                     print(f'Comparison: False')
                     return False
