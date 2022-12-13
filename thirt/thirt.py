@@ -2,6 +2,7 @@ from collections import deque
 
 def compare(l1, l2):
     equal = True
+    if equal == False: return False
 
     if type(l1) is int and type(l2) is list: l1 = [l1]
     if type(l2) is int and type(l1) is list: l2 = [l2]
@@ -19,10 +20,8 @@ def compare(l1, l2):
             
         if len(l1) > 0 and len(l2) == 0: 
             print(f'Comparison: False')
+            equal = False
             return False
-
-
-
 
     if type(l1) is list and type(l2) is list:
 
@@ -40,9 +39,11 @@ def compare(l1, l2):
                 print(f'Comparing {l1[i]} and {l2[i]}')
                 if l1[i] > l2[i]: 
                     print(f'Comparison: False')
+                    equal = False
                     return False
                 if i == (min_len-1) and len(l1) > len(l2) and l1[i] == l2[i]:
                     print(f'Comparison: False')
+                    equal = False
                     return False
                 if i == (min_len-1) and len(l1) == len(l2) and l1[i] == l2[i]:
                     print(f'Comparison: True')
@@ -56,7 +57,7 @@ def compare(l1, l2):
 
     return equal
 
-with open("thirt/thirt_test.txt","r") as f:
+with open("thirt/thirt_input.txt","r") as f:
     lines = f.readlines()
     lines = list(filter(lambda x: x != "\n", lines))
 
