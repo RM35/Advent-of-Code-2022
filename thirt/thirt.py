@@ -25,35 +25,51 @@ def compare(l1, l2):
 
     if type(l1) is list and type(l2) is list:
 
-        final_depth = True
-        for signal in l1:
-            if type(signal) is list: 
-                final_depth = False
-        for signal in l2:
-            if type(signal) is list: 
-                final_depth = False
+        # final_depth = True
+        # for signal in l1:
+        #     if type(signal) is list: 
+        #         final_depth = False
+        # for signal in l2:
+        #     if type(signal) is list: 
+        #         final_depth = False
         
-        if final_depth:
-            min_len = min(len(l1), len(l2))
-            for i in range(min_len):
-                print(f'Comparing {l1[i]} and {l2[i]}')
-                if l1[i] > l2[i]: 
-                    print(f'Comparison: False')
-                    equal = False
-                    return False
+        # if final_depth:
+        #     min_len = min(len(l1), len(l2))
+        #     for i in range(min_len):
+        #         print(f'Comparing {l1[i]} and {l2[i]}')
+        #         if l1[i] > l2[i]: 
+        #             print(f'Comparison: False')
+        #             equal = False
+        #             return False
+        #         if i == (min_len-1) and len(l1) > len(l2) and l1[i] == l2[i]:
+        #             print(f'Comparison: False')
+        #             equal = False
+        #             return False
+        #         if i == (min_len-1) and len(l1) == len(l2) and l1[i] == l2[i]:
+        #             print(f'Comparison: True')
+        #             equal = True
+        #             return True
+        #         if l1[i] < l2[i]: return True
+        #      else:
+
+        all_l1_int = True
+        for i in range(len(l1)):
+            if type(l1[i]) is list: all_l1_int = False
+        all_l2_int = True
+        for i in range(len(l2)):
+            if type(l2[i]) is list: all_l2_int = False
+
+        min_len = min(len(l1), len(l2))
+        for i in range(min_len):
+            if equal == False: continue
+            equal = compare(l1[i], l2[i])
+            if all_l1_int and all_l2_int:
                 if i == (min_len-1) and len(l1) > len(l2) and l1[i] == l2[i]:
                     print(f'Comparison: False')
                     equal = False
                     return False
-                if i == (min_len-1) and len(l1) == len(l2) and l1[i] == l2[i]:
-                    print(f'Comparison: True')
-                    return True
-                if l1[i] < l2[i]: return True
-            
-        else:
-            for i in range(min(len(l1), len(l2))):
-                if equal == False: continue
-                equal = compare(l1[i], l2[i])
+        
+
 
     return equal
 
