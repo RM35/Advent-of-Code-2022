@@ -64,7 +64,8 @@ for sig in all_signals:
     if compare(sig, [[6]]) == -1: total_below_6 += 1
     if compare(sig, [[2]]) == -1: total_below_2 += 1
 
-print(total_below_6 * total_below_2)
+print(total_below_6 + 2, total_below_2 + 1)
+print((total_below_6 + 2) * (total_below_2 + 1))
 # Test outputs
 # True
 # True
