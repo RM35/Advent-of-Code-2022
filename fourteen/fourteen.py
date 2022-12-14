@@ -23,7 +23,7 @@ with open("fourteen/fourteen_test.txt") as f:
                 maxy = y
 
 # build grid using bounds
-grid = [[" " for _ in range(maxx-minx+1)] for _ in range(maxy-miny+1)]
+grid = [[" " for _ in range(maxx-minx+1)] for _ in range(maxy-miny+2)]
 or_p = (minx, 0)
 
 points_of_rock = set()
@@ -72,5 +72,11 @@ for point in points_of_rock:
     newp = p_t(point, or_p)
     grid[newp[0]][newp[1]] = "#"
 
-def sand_dir():
+# add 1 cell buffer to left and right
+
+for row in grid:
+    row.insert(0, " ")
+    row.append(" ")
+
+def sand_move(p):
     pass
