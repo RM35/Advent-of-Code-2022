@@ -8,7 +8,7 @@ def p_t(p1, p2):
     return (p1[1]-p2[1], p1[0]-p2[0])
 
 #Get bounds of cave
-with open("fourteen/fourteen_input.txt") as f:
+with open("fourteen/fourteen_test.txt") as f:
     for line in f.readlines():
         points = line.strip().split(" -> ")
         points = list(map(lambda x: [x.split(",")[0], x.split(",")[1]], points))
@@ -23,12 +23,12 @@ with open("fourteen/fourteen_input.txt") as f:
                 maxy = y
 
 # build grid using bounds
-grid = [[" " for _ in range(maxx-minx+1)] for _ in range(maxy-miny+2)]
+grid = [[" " for _ in range(maxx-minx+1)] for _ in range(maxy-miny+3)]
 or_p = (minx, 0)
 
 points_of_rock = set()
 
-with open("fourteen/fourteen_input.txt") as f:
+with open("fourteen/fourteen_test.txt") as f:
     for line in f.readlines():
         points = line.strip().split(" -> ")
         points = list(map(lambda x: (int(x.split(",")[0]), int(x.split(",")[1])), points))
@@ -77,7 +77,7 @@ for row in grid:
     row.insert(0, "D")
     row.append("D")
 for i, cell in enumerate(grid[-1]):
-    grid[-1][i] = "D"
+    grid[-1][i] = "#"
     
 
 
