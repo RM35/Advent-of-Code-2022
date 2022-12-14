@@ -1,0 +1,12 @@
+D                                                                      D
+D          OOO                                                         D
+D         OOOOO                                                        D
+D        OOOOOOO                                                       D
+D       OOOOOOOOO                  #   ##                              D
+D      OOOOOOOOOOO                 #   #                               D
+D     OOOOOOOOOOOOO              ###   #                               D
+D    OOOOOOOOOOOOOOO                   #                               D
+D   OOOOOOOOOOOOOOOOO                  #                               D
+D  OOOOOOOOOOOOOOOOOOO         #########                               D
+D OOOOOOOOOOOOOOOOOOOOO                                                D
+########################################################################
