@@ -8,7 +8,7 @@ def p_t(p1, p2):
     return (p1[1]-p2[1], p1[0]-p2[0])
 
 #Get bounds of cave
-with open("fourteen/fourteen_test.txt") as f:
+with open("fourteen/fourteen_input.txt") as f:
     for line in f.readlines():
         points = line.strip().split(" -> ")
         points = list(map(lambda x: [x.split(",")[0], x.split(",")[1]], points))
@@ -28,7 +28,7 @@ or_p = (minx, 0)
 
 points_of_rock = set()
 
-with open("fourteen/fourteen_test.txt") as f:
+with open("fourteen/fourteen_input.txt") as f:
     for line in f.readlines():
         points = line.strip().split(" -> ")
         points = list(map(lambda x: (int(x.split(",")[0]), int(x.split(",")[1])), points))
@@ -72,9 +72,11 @@ for point in points_of_rock:
     newp = p_t(point, or_p)
     grid[newp[0]][newp[1]] = "#"
 
+WIDTH = 300
+
 # add the illegal edges
 for row in grid:
-    for i in range(30):
+    for i in range(WIDTH):
         row.insert(0, " ")
         row.append(" ")
     row.insert(0, "D")
@@ -118,7 +120,7 @@ total_stacked = 0
 sandstacked = True
 while sandstacked:
     sand_moving = True
-    sand = (0, 506-minx)
+    sand = (0, 501+WIDTH-minx)
     while sand_moving:
         new_loc = sand_move(sand)
 
@@ -127,7 +129,7 @@ while sandstacked:
             sand_moving = False
             break
         
-        if new_loc == (0, 506-minx):
+        if new_loc == (0, 501+WIDTH-minx):
             sand_moving = False
             sandstacked = False
             break
@@ -142,4 +144,4 @@ while sandstacked:
 
 
         
-print(total_stacked)
+print(total_stacked + 1)
