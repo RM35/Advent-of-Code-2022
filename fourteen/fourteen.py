@@ -72,11 +72,48 @@ for point in points_of_rock:
     newp = p_t(point, or_p)
     grid[newp[0]][newp[1]] = "#"
 
-# add 1 cell buffer to left and right
-
+# add the illegal edges
 for row in grid:
-    row.insert(0, " ")
-    row.append(" ")
+    row.insert(0, "D")
+    row.append("D")
+for i, cell in enumerate(grid[-1]):
+    grid[-1][i] = "D"
+    
+
 
 def sand_move(p):
+    # Move down if possible
+    down_cell = grid[p[0]+1][p[1]]
+    rightdown_cell = grid[p[0]+1][p[1]+1]
+    leftdown_cell = grid[p[0]+1][p[1]-1]
+
+    # Move down
+    if down_cell == " " or down_cell == "D":
+        if down_cell == "D": return False
+        grid[p[0]][p[1]] = " "
+        grid[p[0]+1][p[1]] = "O"
+        return (p[0]+1, p[1])
+
+    # Move leftdown
+    if leftdown_cell == " " or leftdown_cell == "D":
+        if leftdown_cell == "D": return False
+        grid[p[0]][p[1]] = " "
+        grid[p[0]+1][p[1]-1] = "O"
+        return (p[0]+1, p[1]-1)
+
+    # Move rightdown
+    if rightdown_cell == " " or rightdown_cell == "D":
+        if rightdown_cell == "D": return False
+        grid[p[0]][p[1]] = " "
+        grid[p[0]+1][p[1]+1] = "O"
+        return (p[0]+1, p[1]+1)
+
+    return p
+
+# Drop the sand
+while True:
     pass
+
+
+
+       
