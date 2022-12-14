@@ -111,9 +111,24 @@ def sand_move(p):
     return p
 
 # Drop the sand
-while True:
-    pass
+total_stacked = 0
+sandstacked = True
+while sandstacked:
+    sand_moving = True
+    sand = (0, 501-minx)
+    while sand_moving:
+        new_loc = sand_move(sand)
 
+        if new_loc == False:
+            sandstacked = False
+            sand_moving = False
+            break
 
-
-       
+        if new_loc == sand:
+            sand_moving = False
+            total_stacked += 1
+            break
+        
+        sand = new_loc
+        
+print(total_stacked)
