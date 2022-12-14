@@ -8,7 +8,7 @@ def p_t(p1, p2):
     return (p1[1]-p2[1], p1[0]-p2[0])
 
 #Get bounds of cave
-with open("fourteen/fourteen_test.txt") as f:
+with open("fourteen/fourteen_input.txt") as f:
     for line in f.readlines():
         points = line.strip().split(" -> ")
         points = list(map(lambda x: [x.split(",")[0], x.split(",")[1]], points))
@@ -28,7 +28,7 @@ or_p = (minx, 0)
 
 points_of_rock = set()
 
-with open("fourteen/fourteen_test.txt") as f:
+with open("fourteen/fourteen_input.txt") as f:
     for line in f.readlines():
         points = line.strip().split(" -> ")
         points = list(map(lambda x: (int(x.split(",")[0]), int(x.split(",")[1])), points))
