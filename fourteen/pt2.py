@@ -74,6 +74,9 @@ for point in points_of_rock:
 
 # add the illegal edges
 for row in grid:
+    for i in range(30):
+        row.insert(0, " ")
+        row.append(" ")
     row.insert(0, "D")
     row.append("D")
 for i, cell in enumerate(grid[-1]):
@@ -115,7 +118,7 @@ total_stacked = 0
 sandstacked = True
 while sandstacked:
     sand_moving = True
-    sand = (0, 501-minx)
+    sand = (0, 506-minx)
     while sand_moving:
         new_loc = sand_move(sand)
 
@@ -123,12 +126,20 @@ while sandstacked:
             sandstacked = False
             sand_moving = False
             break
+        
+        if new_loc == (0, 506-minx):
+            sand_moving = False
+            sandstacked = False
+            break
 
         if new_loc == sand:
             sand_moving = False
             total_stacked += 1
             break
         
+
         sand = new_loc
+
+
         
 print(total_stacked)
