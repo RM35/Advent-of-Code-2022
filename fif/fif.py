@@ -3,7 +3,7 @@ import re
 
 sens = []
 beac = []
-LINE = 10
+LINE = 2000000
 with open("fif/fif_input.txt") as f:
     lines = f.readlines()
     for line in lines:
