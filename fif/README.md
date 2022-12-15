@@ -1,2 +1,2 @@
 # Do triangles
-![](untitled.png)
+![](Untitled.png)
