@@ -12,6 +12,8 @@ Greedy DFS type pathfinding attempt. Just got stuck. won't work in the end anywa
         - Pick this node and travel to it and activate it. (AFAIK don't touch anything while moving so this step could just be add the steps and set the node to the target)
         - repeat.
 
+17:00 - This won't fully work.
+
 
 ![](testgraph.png)
 ![](testgraphtestpath.png)
