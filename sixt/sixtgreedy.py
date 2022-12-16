@@ -1,4 +1,3 @@
-
 from collections import deque
 import heapq
 
@@ -25,7 +24,7 @@ data = parse()
 graph = make_graph(data)
 
 
-# try depth first greeeedy. gets stuck.
+# gets stuck
 
 q = []
 heapq.heapify(q)
