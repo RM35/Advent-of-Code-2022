@@ -10,4 +10,4 @@
 
 
 ![](testgraph.png)
-![](testgraphpath.png)
+![](testgraphtestpath.png)
