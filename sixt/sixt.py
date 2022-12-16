@@ -37,6 +37,14 @@ def bfs(graph, start):
     return depths
         
 a = bfs(graph, "AA")
+best_key = "AA"
+best_value = 0 
+for key, value in a.items():
+    a[key] = graph[key][0] - value
+    if a[key] > best_value:
+        best_value = a[key]
+        best_key = key
+
 pass
     
 
