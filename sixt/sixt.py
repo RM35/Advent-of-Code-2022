@@ -24,9 +24,6 @@ def make_graph(data):
 data = parse()
 graph = make_graph(data)
 
-
-# try depth first greeeedy. gets stuck.
-
 def bfs(graph, start):
     q = deque()
     q.append([graph[start], 0])
@@ -40,7 +37,7 @@ def bfs(graph, start):
     return depths
         
 a = bfs(graph, "AA")
-pass        
+pass
     
 
 
