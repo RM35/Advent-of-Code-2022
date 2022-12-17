@@ -1,0 +1,3 @@
+- No looking at other's solutions
+- No question summary/overview/guide
+- Standard python library
