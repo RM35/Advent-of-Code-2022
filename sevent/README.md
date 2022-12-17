@@ -12,4 +12,4 @@ there are 7^2 floors so 50 floor variations therefore 2.5 million permutations. 
 
 - 100MM stacks to see what the ratio of height to stacks does:
 
-![](untitled2.png)
+![](Untitled2.png)
