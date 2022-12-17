@@ -15,3 +15,9 @@ there are many floor/stack variations permutations in 100s millions. This requir
 Ratio jumped around within the same rought 1000 or so during this check. Can't check
 them all as we can't just verify a height given the rules? maybe. not sure.
 ![](Untitled2.png)
+
+
+
+# 3 Find the pattern
+
+There must be a repeating pattern. Maybe not as large as every 100m. if a repeating pattern is there then a subset of that patttern must also repeat. Therefore search for a repeating pattern of arbitrary size (say 20 rows) and find how often that repeats. Then expand it to find the start and end of the repeating pattern so that we can count how many rocks are in it and when it starts globally.
