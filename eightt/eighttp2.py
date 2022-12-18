@@ -26,6 +26,10 @@ for p in droplets:
         if adjacent(p, pp):
             face_count[p] -= 1
 
+surface_area = 0
+for p, faces in face_count.items():
+    surface_area += faces
+
 q = deque()
 start = (0, 0, 0)
 q.append(start)
@@ -70,5 +74,15 @@ while q:
 print(f'BFS END: {datetime.now()}')
 print(f'BFS TIME: {datetime.now() - start_time}')
 
+for p in droplets:
+    for pp in explored:
+        if adjacent(p, pp):
+            face_count[p] -= 1
+
+surface_area_internal = 0
+for p, faces in face_count.items():
+    surface_area_internal += faces
+
+print(surface_area - surface_area_internal)
 pass
     

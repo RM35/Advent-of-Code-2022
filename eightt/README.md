@@ -16,6 +16,12 @@ Finding the air pockets to subtract sounds like a BFS from the outside of the dr
 
 - Try without a grid? simplifiies not having to test boundaries and make sure there is boundaries. Just set the boundaries in the BFS.
 
-- BFS coming out with 30k explored cells after setting the bounds to -2 to 30 for each axis. runs in seconds.
+- BFS coming out with 30k explored cells after setting the bounds to -2 to 30 for each axis. runs in 0.3 seconds in debug.
 
-- Now to compare the p1 cells with explored cells and count faces adjacent
+- Now to compare the p1 cells with explored cells and count faces adjacent. This is explored * droplets * 6 sides so 30K * 3K * 6 = 540K operations. Around a minute to run in debug. First answer 7646 is too large. Check test input.
+
+- Fix: issue is the adjacency check is jsut returning true or false and the whole cell is keeping it's faces. The adjacency needs modified to return face reduction based on the number of adjacent explored.
+
+- Can keep the adjacent function and just modify the counting loop. First attempt actually counted the faces no on the outside. COunt the total surface and subtract this should be same. test is working.
+
+- Correct p2 answer after another 1min runtime :)
