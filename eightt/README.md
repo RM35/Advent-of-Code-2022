@@ -22,6 +22,6 @@ Finding the air pockets to subtract sounds like a BFS from the outside of the dr
 
 - Fix: issue is the adjacency check is jsut returning true or false and the whole cell is keeping it's faces. The adjacency needs modified to return face reduction based on the number of adjacent explored.
 
-- Can keep the adjacent function and just modify the counting loop. First attempt actually counted the faces no on the outside. COunt the total surface and subtract this should be same. test is working.
+- Can keep the adjacent function and just modify the counting loop. First attempt actually counted the faces not on the outside. Count the total surface and subtract this should be same. test is working.
 
 - Correct p2 answer after another 1min runtime :)
