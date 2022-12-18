@@ -13,11 +13,11 @@ Ratio jumped around within the same rought 1000 or so during this check. Can't c
 
 # P2 (again)
 
-1: Go gridless. Only remember the last X lines of the stack (30/40/50?)
-2: DP it with this X line state as a set of rock rock positions/height of tallest rock/current jet
+- Go gridless. Only remember the last X lines of the stack (30/40/50?)
+- DP it with this X line state as a set of rock rock positions/height of tallest rock/current jet
 
 or KMP compare an arbitrary section through the next Y million lines to find the recurring pattern?
 
-3: Looking at the test input visually earlier. The repeating pattern starts after the length of teh jets ~ 40 and repeats every 53 rows.
-4: should our input repeat every 10091? probably more because it is a prime and not divisible by the 5 rocks or the "floor" won't be the same every rotation.
-5: Compute a storage int for the current jet index, the last 50 rows of the tower and the current rock. Find out when this exact state repeats?
+- Looking at the test input visually earlier. The repeating pattern starts after the length of teh jets ~ 40 and repeats every 53 rows.
+- should our input repeat every 10091? probably more because it is a prime and not divisible by the 5 rocks or the "floor" won't be the same every rotation.
+- Compute a storage int for the current jet index, the last 50 rows of the tower and the current rock. Find out when this exact state repeats?
