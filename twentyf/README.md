@@ -2,3 +2,4 @@
 - Converting from SNAFU to base 10 is easy enough
 - Use python math combination function to print the first n numbers with 4? characters to see the pattern better.
 - Observing the "encoded output" for patterns. The decimal to SNAFU approach was the correct approach where we check the remainder and handle the carry overs properly.
+- After some debugging the above works in coverting decimal to the custom base 5
