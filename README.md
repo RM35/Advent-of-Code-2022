@@ -1,3 +1,3 @@
 - No looking at other's solutions
-- No question summary/overview/guides
+- No summary/overview of specific questions
 - Standard python library
