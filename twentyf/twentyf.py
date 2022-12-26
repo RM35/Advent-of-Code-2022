@@ -22,18 +22,23 @@ def convert(num):
 def convert_d_to_s(num):
     out = ""
     carry = 0
-    while num > 0:
+    while True:
         remainder = num % 5
         current = (remainder + carry)
+        carry = 0
         if current == 3:
             carry = 1
-            current = "-"
+            current = "="
         if current == 4:
             carry = 1
-            current = "="
+            current = "-"
         out += str(current)
         num = num//5
-    return out
+        if num == 0:
+            if carry == 1:
+                out += "1"
+            break
+    return out[::-1]
 
 decimals = []
 for num in data:
@@ -42,8 +47,16 @@ for num in data:
 
 goal = sum(decimals)
 
-print(convert_baseten_to_basefive(goal+2))
+aa = 14
+a = convert_d_to_s(aa)
+b = convert(a)
+print(a, b)
+print(aa == b)
 
+print(goal)
+print(convert_d_to_s(goal))
+
+# test result 2=-1=0
 
 def show_all_fourdigit():
     chars = "=-012"
