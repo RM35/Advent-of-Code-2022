@@ -1,3 +1,6 @@
+from math import perm
+import itertools
+
 data = open("twentyf/i").readlines()
 data = list(map(lambda x: x.rstrip(), data))
 
@@ -30,13 +33,23 @@ def convert_d_to_s(num):
             current = "="
         out += str(current)
         num = num//5
-    return out[::-1]
+    return out
 
 decimals = []
 for num in data:
     decimal = convert(num)
     decimals.append(decimal)
 
-print(sum(decimals))
-print(convert_d_to_s(sum(decimals)))
+goal = sum(decimals)
 
+print(convert_baseten_to_basefive(goal+2))
+
+
+def show_all_fourdigit():
+    chars = "=-012"
+
+    with open("twentyf/o", "w") as f:
+        for i in itertools.product(chars, repeat=4):
+            stringed = "".join(x for x in i)
+            outstr = f"{stringed} = {convert(stringed)}"
+            f.write(outstr + "\n")
