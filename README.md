@@ -1,3 +1,1 @@
-- No looking at other's solutions
-- No summary/overview of specific questions
-- Standard python library
+- Time to look up Q 16 Q19-24
